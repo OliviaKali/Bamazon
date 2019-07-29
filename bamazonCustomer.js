@@ -20,7 +20,6 @@ connection.connect(function(err) {
   console.log("Welcome to Bamazon!");
   display();
   start();
-  connection.end();
 });
 
 function display() {
@@ -46,27 +45,53 @@ function display() {
 function start() {
   connection.query("SELECT * FROM products", function(err, results) {
     if (err) throw err;
-    inquirer.prompt([
-      {
-        name: "productToBuy",
-        type: "number",
-        message:
-          "What item would you like to purchase? Please provide the ID #."
-      },
-      {
-        name: "amount",
-        type: "number",
-        message: "How much would you like to purchase?"
-      }
-    ]);
-    // .then(function (answer) {
-    //     var chosenItem = [];
-    //     for (var i = 0; i < results.length; i++) {
-    //        if (results[i].item_id === answer.proudctToBuy) {
-    //            chosenItem = results[i].product_name
-    //        }
-    //     }
-    //     if (chosenItem)
-    // })
+    inquirer
+      .prompt([
+        {
+          name: "item",
+          type: "number",
+          message:
+            "What item would you like to purchase? Please provide the ID #."
+        },
+        {
+          name: "amount",
+          type: "number",
+          message: "How many units would you like to purchase?"
+        }
+      ])
+      .then(function(answer) {
+        var ChosenItem;
+        for (var i = 0; i < results.length; i++) {
+           if (results[i].item_id === answer.item) {
+               chosenItem = results[i];
+           }
+        }
+            if (chosenItem.stock_quantity < parseInt(answer.amount)) {
+                console.log("Insufficient quantity! Order not processed. Please try again.");
+                // start();
+                connection.end();
+            }
+            else if (chosenItem.stock_quantity >= parseInt(answer.amount)) {
+                console.log("Order successfully placed!" 
+                + "\nYou have purchased a total of: " + parseInt(answer.amount) 
+                + " " + chosenItem.product_name + "\nYour total cost is: " 
+                + (answer.amount * chosenItem.price));
+                connection.query(
+                    //I need to update 
+                    "UPDATE products SET ?", {
+                        stock_quantity: (chosenItem.stock_quantity - parseInt(answer.amount))
+                    },
+                    function(err) {
+                        if (err) throw err;
+                        //console.log how many items are left after user purchased that item
+                        //console.log whole table???
+                        connection.end();
+                    }
+//                     SET has_pet = true, pet_name = "Franklin", pet_age = 2
+// WHERE name = "Peter";
+                )
+
+            }
+      });
   });
 }
