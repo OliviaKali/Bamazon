@@ -78,17 +78,23 @@ function start() {
                 + (answer.amount * chosenItem.price));
                 connection.query(
                     //I need to update 
-                    "UPDATE products SET ?", {
+                    "UPDATE products SET ? WHERE ?",
+                    [
+                    {
                         stock_quantity: (chosenItem.stock_quantity - parseInt(answer.amount))
                     },
+                    {
+                        item_id: answer.item
+                    }
+                ],
                     function(err) {
                         if (err) throw err;
+                        console.log("There are " + (chosenItem.stock_quantity - parseInt(answer.amount)) + " " + chosenItem.product_name + " left.")
                         //console.log how many items are left after user purchased that item
                         //console.log whole table???
                         connection.end();
                     }
-//                     SET has_pet = true, pet_name = "Franklin", pet_age = 2
-// WHERE name = "Peter";
+
                 )
 
             }
