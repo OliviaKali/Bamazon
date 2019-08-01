@@ -4,7 +4,7 @@ Bamazon is a node application that uses a mysql database. It is an Amazon-like s
 
 Example of Bamazon: https://youtu.be/VIHh1b3DWKU
 
-[![Video of Bamazon](https://img.youtube/vi/VIHh1b3DWKU/0.jpg)](https://youtu.be/VIHh1b3DWKU)
+[![Video of Bamazon](https://img.youtube.com/vi/VIHh1b3DWKU/0.jpg)](https://youtu.be/VIHh1b3DWKU)
 
 ##Technologies Used
 
