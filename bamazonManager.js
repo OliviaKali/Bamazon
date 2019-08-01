@@ -5,15 +5,19 @@ var Table = require("cli-table");
 var connection = mysql.createConnection({
   host: "localhost",
 
+  // Your port; if not 3306
   port: 3306,
 
+  // Your username
   user: "root",
 
+  // Your password
   password: "password",
   database: "bamazon"
 });
 connection.connect(function(err) {
   if (err) throw err;
+  //   console.log("Welcome to Bamazon Management!");
   start();
 });
 
@@ -138,7 +142,7 @@ function addToInventory() {
             console.log(
               `\nYou have added ${parseInt(
                 answer.increaseInventory
-              )} into the ${chosenItem.product_name}s into the Inventory. 
+              )} ${chosenItem.product_name}s into the Inventory. 
                       \nYou now have a total of ${chosenItem.stock_quantity +
                         parseInt(answer.increaseInventory)}.`
             );
@@ -158,7 +162,7 @@ function addNewProduct() {
         message: "What product would you like to add?"
       },
       {
-        type: "list",
+        type: "input",
         name: "department",
         message: "What department does the product belong to?"
       },
