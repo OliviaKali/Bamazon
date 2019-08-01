@@ -5,19 +5,15 @@ var Table = require("cli-table");
 var connection = mysql.createConnection({
   host: "localhost",
 
-  // Your port; if not 3306
   port: 3306,
 
-  // Your username
   user: "root",
 
-  // Your password
   password: "password",
   database: "bamazon"
 });
 connection.connect(function(err) {
   if (err) throw err;
-  //   console.log("Welcome to Bamazon Management!");
   start();
 });
 
@@ -61,7 +57,6 @@ function start() {
 function productsSale() {
   connection.query("SELECT * FROM products", function(err, results) {
     if (err) throw err;
-    // console.log(results);
     var table = new Table({
       head: ["ID", "Product Name", "Price", "Stock Quantity"],
       colWidths: [10, 30, 10, 20]
@@ -86,7 +81,6 @@ function lowInventory() {
     results
   ) {
     if (err) throw err;
-    // console.log(results);
     var table = new Table({
       head: ["ID", "Product Name", "Price", "Stock Quantity"],
       colWidths: [10, 30, 10, 20]

@@ -5,13 +5,10 @@ var Table = require("cli-table");
 var connection = mysql.createConnection({
   host: "localhost",
 
-  // Your port; if not 3306
   port: 3306,
 
-  // Your username
   user: "root",
 
-  // Your password
   password: "password",
   database: "bamazon"
 });
@@ -25,7 +22,6 @@ connection.connect(function(err) {
 function display() {
   connection.query("SELECT * FROM products", function(err, results) {
     if (err) throw err;
-    // console.log(results);
     var table = new Table({
       head: ["ID", "Product Name", "Price"],
       colWidths: [10, 45, 10]
@@ -67,11 +63,7 @@ function start() {
           }
         }
         if (chosenItem.stock_quantity < parseInt(answer.amount)) {
-          console.log(
-            "Insufficient quantity! Order not processed. Please try again."
-          );
-          // start();
-          // connection.end();
+          console.log("Insufficient quantity! Order not processed. Please try again.");
           inquirer
             .prompt([
               {
@@ -118,8 +110,6 @@ function start() {
                   chosenItem.product_name +
                   "s left."
               );
-              //console.log how many items are left after user purchased that item
-              //console.log whole table???
               connection.end();
             }
           );
