@@ -46,28 +46,6 @@ VALUES ("Hamlet Sweatshirt", "Clothes", 35, 100);
 
 SELECT * FROM products;
 
-CREATE TABLE departments (
-  department_id INTEGER NOT NULL AUTO_INCREMENT,
-  department_name VARCHAR(45) NOT NULL,
-  over_head_costs INTEGER(10) NOT NULL,
-  PRIMARY KEY (department_id)
-);
-INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Clothes", 2000);
-
-INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Technology", 1000);
-
-INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Books", 1000);
-
-INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Movies", 500);
-
-INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Furniture", 5000);
-
-SELECT * FROM departments
 
 
 
