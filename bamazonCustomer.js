@@ -63,7 +63,8 @@ function start() {
           }
         }
         if (chosenItem.stock_quantity < parseInt(answer.amount)) {
-          console.log("Insufficient quantity! Order not processed. Please try again.");
+          console.log("\nInsufficient quantity! Order not processed. Please try again." 
+                    + "\n-------------------------------------------------------------\n");
           inquirer
             .prompt([
               {
@@ -82,12 +83,12 @@ function start() {
             });
         } else if (chosenItem.stock_quantity >= parseInt(answer.amount)) {
           console.log(
-            "Order successfully placed!" +
-              "\nYou have purchased a total of: " +
+            "\nOrder successfully placed!" +
+              "\n\nYou have purchased a total of: " +
               parseInt(answer.amount) +
               " " +
               chosenItem.product_name +
-              "\nYour total cost is: " +
+              "\n\nYour total cost is: " +
               answer.amount * chosenItem.price
           );
           connection.query(
@@ -104,7 +105,7 @@ function start() {
             function(err) {
               if (err) throw err;
               console.log(
-                "There are " +
+                "\nThere are " +
                   (chosenItem.stock_quantity - parseInt(answer.amount)) +
                   " " +
                   chosenItem.product_name +
