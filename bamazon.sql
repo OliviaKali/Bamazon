@@ -10,6 +10,7 @@ CREATE TABLE products(
   department_name VARCHAR(45) NOT NULL,
   price INTEGER(10) NOT NULL,
   stock_quantity INTEGER (10) NOT NULL,
+  product_sales INTEGER (10) DEFAULT 0 NOT NULL,
   PRIMARY KEY (item_id)
 );
 
@@ -43,34 +44,30 @@ VALUES ("TV", "Technology", 1000, 75);
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Hamlet Sweatshirt", "Clothes", 35, 100);
 
-SELECT * FROM products
+SELECT * FROM products;
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("laptop", "Technology", 1500, 100);
+CREATE TABLE departments (
+  department_id INTEGER NOT NULL AUTO_INCREMENT,
+  department_name VARCHAR(45) NOT NULL,
+  over_head_costs INTEGER(10) NOT NULL,
+  PRIMARY KEY (department_id)
+);
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Clothes", 2000);
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("Ron Swanson Wooden Chair", "Furniture", 300, 3);
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Technology", 1000);
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("iPhone5", "Techngology", 200, 5);
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Books", 1000);
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("Psychology Textbook", "Books", 150, 10);
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Movies", 500);
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("Used Piano", "Music", 3000, 1);
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Furniture", 5000);
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("Gameboy with Pokemon Silver Game", "Miscellenous", 500, 5);
+SELECT * FROM departments
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("Pride and Prejudice", "Books", 5, 50);
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("Vintage SuperMan Shirt", "Clothes", 15, 15);
 
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("TV", "Technology", 1000, 75);
-
--- INSERT INTO products (product_name, department_name, price, stock_quantity)
--- VALUES ("Lighter from Prague", "Miscellaneous", 3, 10);

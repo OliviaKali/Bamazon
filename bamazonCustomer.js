@@ -100,11 +100,14 @@ function start() {
           );
           connection.query(
             //I need to update
-            "UPDATE products SET ? WHERE ?",
+            "UPDATE products SET ?, ? WHERE ?",
             [
               {
                 stock_quantity:
                   chosenItem.stock_quantity - parseInt(answer.amount)
+              },
+              {
+                product_sales: (answer.amount * chosenItem.price) + chosenItem.product_sales
               },
               {
                 item_id: answer.item

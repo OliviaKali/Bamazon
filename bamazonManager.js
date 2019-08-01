@@ -164,7 +164,7 @@ function addNewProduct() {
         message: "What product would you like to add?"
       },
       {
-        type: "input",
+        type: "list",
         name: "department",
         message: "What department does the product belong to?"
       },
