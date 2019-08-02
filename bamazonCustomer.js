@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 });
 connection.connect(function(err) {
   if (err) throw err;
-  console.log("Welcome to Bamazon!");
+  console.log("\nWelcome to Bamazon!\n");
   display();
   start();
 });
