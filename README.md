@@ -36,23 +36,28 @@ If the customer wants to buy more stock than is available, the order will not go
 
 ## Bamazon Manager
 
-Bamazon Manager prompts the manager with the following options: 
+Bamazon Manager prompts the manager with the following options:
 <img src="images/bamazonManagerPrompt.PNG" width="500">
 
 View Products uses the same function from BamazonCustomer to display the table, however, all of the columns are displayed unlike the customer one.
 
 <img src="images/bamazonManagerViewProducts.PNG" width="500">
 
-View LowInventory displays the table with a specific command from mysql to only show the products with 5 or less stock_quantity.
+View Low Inventory displays the table with a specific command from mysql to only show the products with 5 or less stock_quantity.
+
 ```javascript
   connection.query("SELECT * FROM products WHERE stock_quantity <= 5", function(
     err,
     results
   )
-  ```
+```
+
   <img src="images/bamazonManagerLowInventory.PNG" width="500">
 
-  Add Inventory allows the manager to increase the amount of stock_quantity for current products. 
+Add to Inventory allows the manager to increase the amount of stock_quantity for current products.
 
   <img src="images/bamazonManagerAddInventory.PNG" width="500">
 
+Add New Product allows the manager to add additional items. This newly added product will appear in the display functions in bamazonCustomer.js and bamazonManager.js.
+
+<img src="images/bamazonManagerAddProduct.PNG" width="500">
