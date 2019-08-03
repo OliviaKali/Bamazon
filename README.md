@@ -42,3 +42,17 @@ Bamazon Manager prompts the manager with the following options:
 View Products uses the same function from BamazonCustomer to display the table, however, all of the columns are displayed unlike the customer one.
 
 <img src="images/bamazonManagerViewProducts.PNG" width="500">
+
+View LowInventory displays the table with a specific command from mysql to only show the products with 5 or less stock_quantity.
+```javascript
+  connection.query("SELECT * FROM products WHERE stock_quantity <= 5", function(
+    err,
+    results
+  )
+  ```
+  <img src="images/bamazonManagerLowInventory.PNG" width="500">
+
+  Add Inventory allows the manager to increase the amount of stock_quantity for current products. 
+
+  <img src="images/bamazonManagerAddInventory.PNG" width="500">
+
