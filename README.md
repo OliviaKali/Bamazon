@@ -30,6 +30,15 @@ Bamazon Customer displays a table with the products information from the mysql d
 
 <img src="images/bamazonCustomer.PNG" width="500">
 
-If the customer wants to buy more stock than is available, the order will not go through and the customer will be prompted again.
+If the customer wants to buy more stock than is available, the order will not go through and the customer will be prompted again if they would like to try again.
 
 <img src="images/bamazonCustomer-2.PNG" width="500">
+
+## Bamazon Manager
+
+Bamazon Manager prompts the manager with the following options: 
+<img src="images/bamazonManagerPrompt.PNG" width="500">
+
+View Products uses the same function from BamazonCustomer to display the table, however, all of the columns are displayed unlike the customer one.
+
+<img src="images/bamazonManagerViewProducts.PNG" width="500">
