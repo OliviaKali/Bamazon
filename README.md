@@ -6,7 +6,7 @@ Example of Bamazon: https://youtu.be/VIHh1b3DWKU
 
 [![Video of Bamazon](https://img.youtube.com/vi/VIHh1b3DWKU/0.jpg)](https://youtu.be/VIHh1b3DWKU)
 
-##Technologies Used
+## Technologies Used
 
 Built with mysql database and used three NPM packages(NPM INQUIRER, NPM MYSQL, AND NPM CLI TABLE)
 
